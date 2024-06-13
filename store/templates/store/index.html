@@ -1,0 +1,40 @@
+{% extends "store\base.html" %}
+{% load static %}
+{% block title %}
+eshop| The world of shopping
+{% endblock title %}
+{% block content %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/1.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/2.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+<div class="container">
+    <div class="h4 pb-2 mb-4 text-danger text-center border-bottom border-danger my-3">Categories</div>
+
+    <div class="row">
+        {% for i in categories %}
+        <div class="col-md-3 mb-4">
+            <a href="{% url 'cat_data' i.id %}">
+                <div class="card">
+                    <img src="{{ i.image.url }}" class="card-img-top" alt="..." height="" width="">
+                    <div class="card-body text-center">
+            </a>
+            <p class="card-text">{{i.name}}</p>
+        </div>
+    </div>
+</div>
+    {% endfor %}
+</div>
+</div>
+
+
+
+{% endblock %}

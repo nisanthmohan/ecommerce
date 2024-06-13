@@ -1,0 +1,31 @@
+{% extends "store\base.html" %}
+{% load static %}
+{% block title %}
+eshop| The world of shopping
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="h4 pb-2 mb-4 text-danger text-center border-bottom border-danger my-3">{{name.name}}</div>
+
+    <div class="row">
+        {% for i in data %}
+        <div class="col-md-3 mb-4">
+            <a href="{% url 'pro_data' i.id %}">
+                <div class="card">
+                    <img src="{{ i.product_image.url }}" class="card-img-top" alt="..." height="300px" width="400px">
+                    <div class="card-body text-center"></a>
+                        <h1 class="card-text">{{i.name}}</h1>
+                        <h4>{{i.original_price}}&nbsp;<s>{{i.selling_price}}</s></h4>
+                        <h6 style="color: red;">only {{i.quantity}} left,hurry</h6>
+                    </div>
+                </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}
